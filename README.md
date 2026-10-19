@@ -1,85 +1,94 @@
 # CamManager
 
-Aplikacja webowa do podglądu i sterowania kamerami IP (RTSP) z kategoriami, PTZ oraz audio.
+CamManager is a web application for monitoring and controlling RTSP-based IP cameras. It provides camera categories, live browser playback, audio controls, and PTZ support in one dashboard.
 
-## Funkcje
+## Features
 
-- Logowanie (login/hasło z pliku `.env` — nie commituj sekretów)
-- Dodawanie / edycja / usuwanie kamer
-- Kategorie kamer
-- Podgląd na żywo (RTSP → przeglądarka przez **go2rtc**)
-- Włączanie / wyciszanie audio
-- Sterowanie PTZ (lewo, prawo, góra, dół, zoom) — Dahua, Hikvision, ONVIF
+- Admin authentication configured through environment variables
+- Add, edit, and remove cameras
+- Organize cameras into categories
+- Convert RTSP streams for browser playback through **go2rtc**
+- Enable or mute camera audio
+- PTZ controls for Dahua, Hikvision, and ONVIF-compatible cameras
 
-## Szybki start (Docker)
+## Screenshots
 
-1. Skopiuj env:
+### Camera dashboard
+
+![CamManager dashboard](docs/screenshots/dashboard.svg)
+
+### Add camera form
+
+![Add camera form](docs/screenshots/add-camera.svg)
+
+## Quick start with Docker
+
+1. Create a local environment file from the example:
 
 ```bash
 cp .env.example .env
 ```
 
-2. Plik `.env` jest już ustawiony pod produkcję:
+2. Configure the go2rtc URL for your environment. Do not commit `.env` or real credentials.
 
 ```env
-NEXT_PUBLIC_GO2RTC_URL=http://itr.igrabka.instytut:50005/go2rtc
+NEXT_PUBLIC_GO2RTC_URL=http://localhost:1984
 ```
 
-3. Uruchom:
+3. Build and start the application:
 
 ```bash
 docker compose up -d --build
 ```
 
-Aplikacja: http://itr.igrabka.instytut:50005  
-Stream (go2rtc): http://itr.igrabka.instytut:50005/go2rtc
+The application is then available at `http://localhost:3000` unless your deployment overrides the port.
 
-## Development (bez Dockera)
+## Local development
 
-Potrzebujesz lokalnie działającego go2rtc (port 1984) albo zmień `GO2RTC_URL`.
+Run go2rtc locally on port `1984`, or update `NEXT_PUBLIC_GO2RTC_URL` to point to an existing instance.
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Dodawanie kamery
+## Adding a camera
 
-URL RTSP jak w VLC, np.:
+Enter an RTSP URL in the same format used by VLC. Use a placeholder while documenting or testing the application:
 
 ```text
-rtsp://admin:MojeHaslo@192.168.103.84
+rtsp://username:your-password@camera.example.local
 ```
 
-Aplikacja rejestruje stream w go2rtc — w przeglądarce nie trzeba VLC.
+CamManager registers the stream with go2rtc, so the browser does not need VLC to display the live view.
 
-## PTZ
+## PTZ support
 
-Przy dodawaniu kamery wybierz typ:
+Choose the appropriate PTZ type when adding a camera:
 
-| Typ | Kiedy |
-|-----|--------|
-| Dahua / Uniarch | Kamery Dahua, Uniarch, część OEM |
-| Hikvision | Kamery Hikvision / HiLook |
-| ONVIF | Kamery z włączonym ONVIF PTZ |
-| Bez PTZ | Tylko podgląd |
+| Type | Recommended for |
+| --- | --- |
+| Dahua / Uniarch | Dahua, Uniarch, and compatible OEM cameras |
+| Hikvision | Hikvision and HiLook cameras |
+| ONVIF | Cameras with ONVIF PTZ enabled |
+| No PTZ | Cameras used for viewing only |
 
-## Bezpieczeństwo
+## Security notes
 
-- `.env` jest w `.gitignore`
-- Na GitHub wrzucaj tylko `.env.example`
-- Zmień `AUTH_SECRET` i hasło przed produkcją
-- RTSP z hasłem w URL jest przechowywany lokalnie w `data/store.json` (volume Dockera)
+- Keep `.env` files out of version control.
+- Commit only safe example configuration such as `.env.example`.
+- Use a unique `AUTH_SECRET` and strong camera credentials in production.
+- RTSP URLs containing credentials are stored locally by the application and should be protected accordingly.
 
-## Reverse proxy (domena)
+## Reverse proxy
 
-Przykład Nginx:
+For an Nginx deployment, proxy the application and go2rtc separately:
 
-- `/` → `cam-manager:3000`
-- `/go2rtc/` → `cam-go2rtc:1984` (WebSocket też!)
+- `/` -> `cam-manager:3000`
+- `/go2rtc/` -> `cam-go2rtc:1984`, including WebSocket support
 
-Potem ustaw:
+Then configure the public go2rtc URL:
 
 ```env
-NEXT_PUBLIC_GO2RTC_URL=https://twojadomena.pl/go2rtc
+NEXT_PUBLIC_GO2RTC_URL=https://your-domain.example/go2rtc
 ```
