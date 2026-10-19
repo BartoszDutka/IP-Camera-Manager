@@ -89,7 +89,3 @@ CamManager is well suited for:
 ## License
 
 This project is provided as a template / internal dashboard implementation. Add your preferred license before publishing externally.
-
-## Notes
-
-The UI design shown here is intended to represent the project visually and is organized for GitHub presentation. Update the configuration and runtime details with your actual app stack before public release.
