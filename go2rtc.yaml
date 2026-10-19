@@ -1,0 +1,16 @@
+api:
+  listen: ":1984"
+  origin: "*"
+
+rtsp:
+  listen: ":8554"
+
+webrtc:
+  listen: ":8555"
+  candidates:
+    - 192.168.102.150:8555
+    - itr.igrabka.instytut:8555
+    - stun:8555
+
+log:
+  level: info

@@ -1,0 +1,47 @@
+services:
+  proxy:
+    image: nginx:alpine
+    container_name: cam-proxy
+    restart: unless-stopped
+    ports:
+      - "50005:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+      - go2rtc
+
+  app:
+    build: .
+    container_name: cam-manager
+    restart: unless-stopped
+    environment:
+      AUTH_USERNAME: ${AUTH_USERNAME:-admin}
+      AUTH_PASSWORD: ${AUTH_PASSWORD:?AUTH_PASSWORD is required}
+      AUTH_SECRET: ${AUTH_SECRET:?AUTH_SECRET is required}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+      GO2RTC_URL: http://go2rtc:1984
+      NEXT_PUBLIC_GO2RTC_URL: ${NEXT_PUBLIC_GO2RTC_URL:-http://itr.igrabka.instytut:50005/go2rtc}
+      GO2RTC_PUBLIC_URL: ${GO2RTC_PUBLIC_URL:-http://itr.igrabka.instytut:50005/go2rtc}
+      DATA_DIR: /app/data
+
+    volumes:
+      - cam-data:/app/data
+    depends_on:
+      - go2rtc
+
+  go2rtc:
+    image: alexxit/go2rtc:latest
+    container_name: cam-go2rtc
+    restart: unless-stopped
+    ports:
+      - "1984:1984"
+      - "8555:8555"
+      - "8555:8555/udp"
+    volumes:
+      - ./go2rtc.yaml:/config/go2rtc.yaml:ro
+    environment:
+      TZ: Europe/Warsaw
+
+volumes:
+  cam-data:
