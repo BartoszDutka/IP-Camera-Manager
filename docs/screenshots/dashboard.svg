@@ -1,0 +1,56 @@
+<svg width="1400" height="900" viewBox="0 0 1400 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1400" height="900" fill="#EAF1F0"/>
+  <rect x="0" y="0" width="1400" height="82" fill="#F6F7F7" stroke="#D9DFDD"/>
+  <rect x="24" y="24" width="38" height="38" rx="10" fill="#1C1F26"/>
+  <circle cx="43" cy="43" r="12" fill="#8AD9C8"/>
+  <rect x="84" y="24" width="180" height="34" rx="10" fill="#F6F7F7"/>
+  <text x="88" y="46" fill="#1D2128" font-family="Arial, sans-serif" font-size="28" font-weight="700">CamManager</text>
+  <text x="90" y="67" fill="#6B7682" font-family="Arial, sans-serif" font-size="12">Logged in as: admin</text>
+  <rect x="1162" y="18" width="170" height="42" rx="12" fill="#1FB7A4"/>
+  <text x="1197" y="45" fill="white" font-family="Arial, sans-serif" font-size="22" font-weight="600">+ Add camera</text>
+
+  <rect x="32" y="110" width="320" height="730" rx="22" fill="#F0F3F2" stroke="#D9DFDD"/>
+  <rect x="56" y="136" width="270" height="42" rx="12" fill="#F1F7F5" stroke="#D9DFDD"/>
+  <text x="96" y="163" fill="#1D2128" font-family="Arial, sans-serif" font-size="24" font-weight="700">CATEGORIES</text>
+  <circle cx="282" cy="157" r="11" fill="#1FB7A4"/>
+  <text x="306" y="163" fill="#1FB7A4" font-family="Arial, sans-serif" font-size="32">+</text>
+  <rect x="56" y="198" width="270" height="50" rx="12" fill="#DFF7F2"/>
+  <text x="86" y="232" fill="#0F8F7B" font-family="Arial, sans-serif" font-size="24" font-weight="700">All cameras</text>
+  <g>
+    <circle cx="84" cy="328" r="8" fill="#1FB7A4"/>
+    <text x="108" y="335" fill="#1D2128" font-family="Arial, sans-serif" font-size="22">General</text>
+  </g>
+
+  <rect x="410" y="112" width="930" height="748" rx="28" fill="#F4F7F6"/>
+  <text x="440" y="178" fill="#1D2128" font-family="Arial, sans-serif" font-size="52" font-weight="700">All cameras</text>
+  <text x="690" y="180" fill="#6B7682" font-family="Arial, sans-serif" font-size="20">1 camera</text>
+
+  <rect x="440" y="220" width="760" height="500" rx="18" fill="#1A1E25"/>
+  <rect x="440" y="220" width="760" height="28" fill="#0D1015" opacity="0.35"/>
+  <rect x="450" y="236" width="94" height="20" rx="10" fill="#D6484A"/>
+  <text x="464" y="252" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="700">• LIVE</text>
+  <rect x="610" y="232" width="38" height="30" rx="8" fill="#1D2128"/>
+  <rect x="660" y="232" width="38" height="30" rx="8" fill="#1D2128"/>
+  <g>
+    <rect x="660" y="240" width="18" height="14" rx="4" fill="#8AD9C8"/>
+    <rect x="540" y="236" width="52" height="20" rx="10" fill="#0D1015"/>
+  </g>
+  <rect x="540" y="690" width="160" height="30" rx="10" fill="#1E2430" opacity="0.7"/>
+  <text x="617" y="712" fill="white" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Server name</text>
+  <rect x="1040" y="690" width="160" height="30" rx="10" fill="#1E2430" opacity="0.7"/>
+  <text x="1120" y="712" fill="white" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Click to full screen</text>
+
+  <rect x="440" y="742" width="360" height="86" rx="14" fill="#F7F8F8" stroke="#D9DFDD"/>
+  <text x="462" y="785" fill="#1C1F26" font-family="Arial, sans-serif" font-size="26" font-weight="700">Serverownia</text>
+  <rect x="440" y="746" width="360" height="32" fill="#1D2128" rx="14"/>
+  <text x="458" y="768" fill="white" font-family="Arial, sans-serif" font-size="14">Camera status</text>
+
+  <rect x="840" y="742" width="360" height="86" rx="14" fill="#F7F8F8" stroke="#D9DFDD"/>
+  <text x="863" y="786" fill="#1C1F26" font-family="Arial, sans-serif" font-size="32" font-weight="700">PTZ control</text>
+  <text x="864" y="812" fill="#6B7682" font-family="Arial, sans-serif" font-size="16">Preset camera control</text>
+
+  <g transform="translate(0 0)">
+    <rect x="1020" y="120" width="250" height="48" rx="14" fill="#DDF5F0"/>
+    <text x="1090" y="151" fill="#0F8F7B" font-family="Arial, sans-serif" font-size="18" font-weight="700">Streaming active</text>
+  </g>
+</svg>
