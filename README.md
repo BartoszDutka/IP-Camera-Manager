@@ -1,6 +1,6 @@
-# CamManager
+# IP-Camera-Manager
 
-CamManager is a web application for monitoring and controlling RTSP-based IP cameras. It provides camera categories, live browser playback, audio controls, and PTZ support in one dashboard.
+IP-Camera-Manager is a web application for monitoring and controlling RTSP-based IP cameras. It provides camera categories, live browser playback, audio controls, and PTZ support in one dashboard.
 
 ## Features
 
