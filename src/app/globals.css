@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Sora", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  color: #1e2630;
+  background: #f4f6f8;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(13, 148, 136, 0.25);
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition;
+    @apply bg-signal text-white shadow-sm hover:bg-signal-dark;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 disabled:opacity-50;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition;
+    @apply bg-white text-ink-700 ring-1 ring-ink-200 hover:bg-ink-50 hover:text-ink-900;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 disabled:opacity-50;
+  }
+
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition;
+    @apply bg-red-50 text-red-700 ring-1 ring-red-200 hover:bg-red-100;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-300 disabled:opacity-50;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-ink-200 bg-white px-3.5 py-2.5 text-sm text-ink-900 shadow-sm outline-none;
+    @apply focus:border-signal focus:ring-2 focus:ring-teal-200;
+  }
+
+  .label {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-ink-500;
+  }
+
+  .panel {
+    @apply rounded-2xl border border-ink-100 bg-white shadow-panel;
+  }
+}

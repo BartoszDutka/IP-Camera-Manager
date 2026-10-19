@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+data
+.git
+.gitignore
+.env
+*.log
+README.md
+assets
+**/*.md
