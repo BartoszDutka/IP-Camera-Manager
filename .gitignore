@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+build
+dist
+.env
+.env.local
+npm-debug.log*
+.DS_Store
+coverage
+.vscode/
