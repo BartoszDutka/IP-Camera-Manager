@@ -17,12 +17,12 @@ services:
     restart: unless-stopped
     environment:
       AUTH_USERNAME: ${AUTH_USERNAME:-admin}
-      AUTH_PASSWORD: ${AUTH_PASSWORD:?AUTH_PASSWORD is required}
-      AUTH_SECRET: ${AUTH_SECRET:?AUTH_SECRET is required}
+      AUTH_PASSWORD: ${AUTH_PASSWORD:?Set AUTH_PASSWORD}
+      AUTH_SECRET: ${AUTH_SECRET:?Set AUTH_SECRET}
       COOKIE_SECURE: ${COOKIE_SECURE:-false}
       GO2RTC_URL: http://go2rtc:1984
-      NEXT_PUBLIC_GO2RTC_URL: ${NEXT_PUBLIC_GO2RTC_URL:-http://itr.igrabka.instytut:50005/go2rtc}
-      GO2RTC_PUBLIC_URL: ${GO2RTC_PUBLIC_URL:-http://itr.igrabka.instytut:50005/go2rtc}
+      NEXT_PUBLIC_GO2RTC_URL: ${NEXT_PUBLIC_GO2RTC_URL:-http://localhost:50005/go2rtc}
+      GO2RTC_PUBLIC_URL: ${GO2RTC_PUBLIC_URL:-http://localhost:50005/go2rtc}
       DATA_DIR: /app/data
 
     volumes:
